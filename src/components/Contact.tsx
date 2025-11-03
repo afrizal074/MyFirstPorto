@@ -1,17 +1,40 @@
+// src/components/Contact.tsx
 import { motion, useInView } from "framer-motion";
 import { useRef, useState } from "react";
 import { Button } from "./ui/button";
 import { Input } from "./ui/input";
 import { Textarea } from "./ui/textarea";
-import { Mail, Github, Linkedin, Twitter } from "lucide-react";
+
+// === PERUBAHAN 1: Impor ikon Instagram dan MessageCircle (untuk WhatsApp) ===
+import { Mail, Linkedin, Instagram, MessageCircle } from "lucide-react"; 
+// === AKHIR PERUBAHAN 1 ===
+
 import { toast } from "sonner";
 
+// === PERUBAHAN 2: Tambahkan Instagram dan WhatsApp ke array ===
 const socialLinks = [
-  { icon: Github, href: "#", label: "GitHub" },
-  { icon: Linkedin, href: "#", label: "LinkedIn" },
-  { icon: Twitter, href: "#", label: "Twitter" },
-  { icon: Mail, href: "mailto:hello@example.com", label: "Email" }
+  { 
+    icon: Linkedin, 
+    href: "https://www.linkedin.com/in/afrizalfauzi-firmansyah425/", // <-- GANTI DENGAN LINK LINKEDIN ANDA
+    label: "LinkedIn" 
+  },
+  { 
+    icon: Mail, 
+    href: "mailto:afrizalfauzi2003@gmail.com", 
+    label: "Email" 
+  },
+  { 
+    icon: Instagram, 
+    href: "https://www.instagram.com/afrizalfauziii./", // <-- GANTI DENGAN LINK INSTAGRAM ANDA
+    label: "Instagram" 
+  },
+  { 
+    icon: MessageCircle, // Menggunakan ikon chat untuk WhatsApp
+    href: "https://wa.me/6285716910663", // <-- GANTI DENGAN NOMOR WHATSAPP ANDA (diawali 62)
+    label: "WhatsApp" 
+  }
 ];
+// === AKHIR PERUBAHAN 2 ===
 
 export const Contact = () => {
   const ref = useRef(null);
@@ -24,6 +47,7 @@ export const Contact = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    console.log("Form submitted:", formData);
     toast.success("Message sent! I'll get back to you soon.");
     setFormData({ name: "", email: "", message: "" });
   };
@@ -123,11 +147,13 @@ export const Contact = () => {
               <div className="space-y-4">
                 <h4 className="text-xl font-semibold mb-4">Find me on</h4>
                 <div className="flex gap-4">
+                  {/* Sekarang akan me-render 4 ikon */}
                   {socialLinks.map((social) => (
                     <a
                       key={social.label}
                       href={social.href}
-                      target="_blank"
+                      // Buka di tab baru hanya jika BUKAN email
+                      target={social.label !== 'Email' ? "_blank" : undefined} 
                       rel="noopener noreferrer"
                       className="w-12 h-12 rounded-xl bg-primary/10 hover:bg-primary/20 border border-primary/20 flex items-center justify-center transition-all duration-300 hover:scale-110 group"
                       aria-label={social.label}
@@ -141,12 +167,14 @@ export const Contact = () => {
               <div className="pt-8">
                 <div className="bg-card border-glow rounded-2xl p-6">
                   <p className="text-sm text-muted-foreground mb-2">Email me directly at</p>
-                  <a 
-                    href="mailto:hello@example.com" 
-                    className="text-xl font-semibold text-primary hover:underline"
+                  <button
+                    onClick={() => {
+                      window.location.href = 'mailto:afrizalfauzi2003@gmail.com'; 
+                    }}
+                    className="text-xl font-semibold text-primary hover:underline bg-transparent border-none p-0 cursor-pointer text-left w-full focus:outline-none focus:ring-0"
                   >
-                    hello@example.com
-                  </a>
+                    afrizalfauzi2003@gmail.com
+                  </button>
                 </div>
               </div>
             </motion.div>

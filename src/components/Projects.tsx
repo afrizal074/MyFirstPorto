@@ -1,26 +1,46 @@
+// src/components/Projects.tsx
+
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
-import { ExternalLink, Github } from "lucide-react";
+// "ExternalLink" dihapus dari impor karena tidak lagi digunakan
 import { Button } from "./ui/button";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger
+} from "./ui/dialog";
 
+// 1. Perbarui array projects dengan data Anda
 const projects = [
   {
-    title: "3D Portfolio Experience",
-    description: "Interactive 3D portfolio showcasing creative work with WebGL and Three.js animations",
-    tech: ["React", "Three.js", "WebGL", "GSAP"],
-    image: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=800&auto=format&fit=crop"
+    title: "Bot Customer Service", 
+    description: "Its .......", 
+    tech: ["N8N", "Gemini API", "SerpAPI", "Google Sheets API"],
+    image: "/images/Bot Customer Service.jpg", // <-- Ganti dengan path gambar Anda
+    demoUrl: "#", // <-- Ganti dengan link demo live Anda
+    fullDescription: 
+      "Its my Project trading Meme Coin."
   },
   {
-    title: "E-Commerce Platform",
-    description: "Modern e-commerce solution with real-time inventory and seamless checkout experience",
-    tech: ["Next.js", "TypeScript", "Stripe", "Prisma"],
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&auto=format&fit=crop"
+    title: "Meme Coin Trading Crypto", 
+    description: "Modern e-commerce solution with real-time inventory...", 
+    tech: ["Phantom", "Trojan Telegram Bot", "GmGn"],
+    image: "/images/Meme Coin.jpg", // <-- Ganti dengan path gambar Anda
+    demoUrl: "#",
+    fullDescription:
+      "Penjelasan mendalam mengenai platform trading crypto. Bagaimana Anda menangani data real-time, keamanan, dan integrasi pembayaran. Ini akan muncul di dalam modal."
   },
   {
-    title: "AI Dashboard Analytics",
-    description: "Data visualization dashboard with AI-powered insights and predictive analytics",
-    tech: ["React", "D3.js", "Python", "TensorFlow"],
-    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&auto=format&fit=crop"
+    title: "Analystict Data Visualization", 
+    description: "Data visualization dashboard with AI-powered insights...", 
+    tech: ["Python", "altair", "Pandas", "Numply"],
+    image: "/images/Analysis Data Visual.jpg", // <-- Ganti dengan path gambar Anda
+    demoUrl: "#",
+    fullDescription:
+      "Detail tentang dashboard analitik. Bagaimana data diproses, visualisasi apa yang Anda buat menggunakan D3.js, dan bagaimana integrasi AI/ML (TensorFlow) berfungsi."
   }
 ];
 
@@ -38,6 +58,7 @@ export const Projects = () => {
           transition={{ duration: 0.8 }}
         >
           <div className="text-center mb-16">
+            {/* ... (Judul section tetap sama) ... */}
             <h2 className="text-5xl md:text-6xl font-bold mb-6">
               Featured <span className="text-gradient">Projects</span>
             </h2>
@@ -48,34 +69,73 @@ export const Projects = () => {
 
           <div className="grid lg:grid-cols-3 md:grid-cols-2 gap-8 max-w-7xl mx-auto">
             {projects.map((project, index) => (
-              <motion.div
-                key={project.title}
-                initial={{ opacity: 0, y: 30 }}
-                animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-                transition={{ duration: 0.6, delay: index * 0.15 }}
-                className="group"
-              >
-                <div className="bg-card rounded-2xl overflow-hidden border-glow card-glow h-full flex flex-col">
-                  <div className="relative h-48 overflow-hidden">
-                    <img 
-                      src={project.image} 
-                      alt={project.title}
-                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-card via-card/50 to-transparent opacity-60" />
+              <Dialog key={project.title}>
+                <motion.div
+                  // ... (props motion.div tetap sama)
+                  className="group"
+                >
+                  <div className="bg-card rounded-2xl overflow-hidden border-glow card-glow h-full flex flex-col">
+                    <div className="relative h-48 overflow-hidden">
+                      <img
+                        src={project.image} 
+                        alt={project.title}
+                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-card via-card/50 to-transparent opacity-60" />
+                    </div>
+
+                    <div className="p-6 flex-1 flex flex-col">
+                      <h3 className="text-2xl font-bold mb-3 group-hover:text-primary transition-colors duration-300">
+                        {project.title}
+                      </h3>
+                      <p className="text-muted-foreground mb-4 flex-1 leading-relaxed">
+                        {project.description}
+                      </p>
+
+                      <div className="flex flex-wrap gap-2 mb-6">
+                        {project.tech.map((tech) => (
+                          <span
+                            key={tech}
+                            className="px-3 py-1 text-sm bg-primary/10 text-primary rounded-full border border-primary/20"
+                          >
+                            {tech}
+                          </span>
+                        ))}
+                      </div>
+
+                      <div className="flex gap-3">
+                
+                        
+                        {/* Tombol "Demo" (DialogTrigger) di card tetap ada */}
+                        <DialogTrigger asChild>
+                          <Button
+                            size="sm"
+                            className="flex-1 bg-primary hover:bg-primary/90"
+                          >
+                            {/* Ikon ExternalLink masih digunakan di sini */}
+                            <motion.img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJsdWNpZGUgbHVjaWRlLWV4dGVybmFsLWxpbmsiPjxwYXRoIGQ9Ik0xOCAxM3Y2YTIgMiAwIDAgMS0yIDJoLTljLTIgMC00LTQgMC02VjciLz48cG9seWxpbmUgcG9pbnRzPSIxNSA4IDggOCA4IDE1Ii8+PC9zdmc+" alt="External Link" className="w-4 h-4 mr-2 filter" />
+                            Detail
+                          </Button>
+                        </DialogTrigger>
+                      </div>
+                    </div>
                   </div>
-                  
-                  <div className="p-6 flex-1 flex flex-col">
-                    <h3 className="text-2xl font-bold mb-3 group-hover:text-primary transition-colors duration-300">
+                </motion.div>
+
+                {/* Konten Modal (Dialog) */}
+                <DialogContent className="max-w-3xl bg-card border-glow text-foreground p-8">
+                  <DialogHeader>
+                    <img
+                      src={project.image}
+                      alt={project.title}
+                      className="rounded-lg mb-4 w-full h-64 object-cover"
+                    />
+                    <DialogTitle className="text-3xl font-bold text-gradient mb-4">
                       {project.title}
-                    </h3>
-                    <p className="text-muted-foreground mb-4 flex-1 leading-relaxed">
-                      {project.description}
-                    </p>
-                    
-                    <div className="flex flex-wrap gap-2 mb-6">
+                    </DialogTitle>
+                    <div className="flex flex-wrap gap-2 my-4">
                       {project.tech.map((tech) => (
-                        <span 
+                        <span
                           key={tech}
                           className="px-3 py-1 text-sm bg-primary/10 text-primary rounded-full border border-primary/20"
                         >
@@ -83,27 +143,19 @@ export const Projects = () => {
                         </span>
                       ))}
                     </div>
-
-                    <div className="flex gap-3">
-                      <Button 
-                        variant="outline" 
-                        size="sm"
-                        className="flex-1 border-primary/50 hover:bg-primary/10"
-                      >
-                        <Github className="w-4 h-4 mr-2" />
-                        Code
-                      </Button>
-                      <Button 
-                        size="sm"
-                        className="flex-1 bg-primary hover:bg-primary/90"
-                      >
-                        <ExternalLink className="w-4 h-4 mr-2" />
-                        Demo
-                      </Button>
-                    </div>
+                    <DialogDescription className="text-muted-foreground text-lg leading-relaxed">
+                      {project.fullDescription}
+                    </DialogDescription>
+                  </DialogHeader>
+                  
+                  {/* === BAGIAN INI TELAH DIHAPUS ===
+                  <div className="flex gap-4 mt-6">
+                    ... (Tombol View Code dan View Live Demo tadinya di sini) ...
                   </div>
-                </div>
-              </motion.div>
+                  === AKHIR BAGIAN YANG DIHAPUS === */}
+
+                </DialogContent>
+              </Dialog>
             ))}
           </div>
         </motion.div>

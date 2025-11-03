@@ -16,7 +16,7 @@ export const Hero = () => {
 
       {/* Content */}
       <div className="container relative z-10 px-6">
-        <div className="max-w-5xl mx-auto text-center space-y-8">
+        <div className="max-w-5xl mx-auto text-center space-y-8 pt-40">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -24,12 +24,12 @@ export const Hero = () => {
             className="space-y-4"
           >
             <h1 className="text-6xl md:text-8xl font-bold tracking-tight">
-              <span className="text-gradient glow-text">Creative</span>
+              <span className="text-gradient glow-text">Afrizal Fauzi</span>
               <br />
-              Developer
+              Firmansyah
             </h1>
             <p className="text-xl md:text-2xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-              Crafting elegant solutions with interactive 3D experiences and cutting-edge web technologies
+              Nice too meet you! I'm a Newbie for web developer , just started learning.
             </p>
           </motion.div>
 
@@ -60,7 +60,7 @@ export const Hero = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1, delay: 1.2 }}
-            className="pt-16"
+            className="pt-40"
           >
             <ArrowDown className="w-6 h-6 mx-auto animate-bounce text-primary" />
           </motion.div>
