@@ -17,21 +17,21 @@ import {
 const projects = [
   {
     title: "Bot Customer Service", 
-    description: "Its .......", 
+    description:"Automated customer service bot with multi-platform integration and intelligent workflow automation.",
     tech: ["N8N", "Gemini API", "SerpAPI", "Google Sheets API"],
     image: "/images/Bot-Customer-Service.jpg", // <-- Ganti dengan path gambar Anda
     demoUrl: "#", // <-- Ganti dengan link demo live Anda
     fullDescription: 
-      "Its my Project trading Meme Coin."
+      "Proyek ini adalah sistem otomatisasi layanan pelanggan yang dibangun menggunakan N8N, Gemini API, SerpAPI, dan Google Sheets API. Bot ini mampu menjawab pertanyaan umum, mengeksekusi alur kerja otomatis, serta mengambil data real-time dari berbagai sumber untuk meningkatkan efisiensi layananFitur utama termasuk pengolahan pesan otomatis, penarikan data eksternal, manajemen database berbasis Google Sheets, dan kemampuan integrasi dengan berbagai platform komunikasi.",
   },
   {
     title: "Meme Coin Trading Crypto", 
-    description: "Modern e-commerce solution with real-time inventory...", 
+    description: "Automated crypto analysis and monitoring tool designed for meme-coin market tracking.", 
     tech: ["Phantom", "Trojan Telegram Bot", "GmGn"],
     image: "/images/Meme-Coin.jpg", // <-- Ganti dengan path gambar Anda
     demoUrl: "#",
     fullDescription:
-      "Penjelasan mendalam mengenai platform trading crypto. Bagaimana Anda menangani data real-time, keamanan, dan integrasi pembayaran. Ini akan muncul di dalam modal."
+      "Proyek ini merupakan platform monitoring dan analisis pasar cryptocurrency, khususnya pada kategori meme coin. Sistem ini menggunakan integrasi API seperti Phantom dan modul bot untuk mengumpulkan data pasar, memantau pergerakan harga, serta memberikan laporan atau notifikasi otomatisFokus utama proyek ini adalah riset, pengujian strategi, dan monitoring data real-time dalam konteks edukasi dan eksplorasi teknologi blockchain, bukan untuk aktivitas trading berisiko. Platform ini menampilkan bagaimana data market dikumpulkan, diproses, dan divisualisasikan secara otomatis."
   },
   {
     title: "Design Shirt", 
@@ -40,7 +40,7 @@ const projects = [
     image: "/images/Canva.jpg", // <-- Ganti dengan path gambar Anda
     demoUrl: "#",
     fullDescription:
-      "Detail tentang dashboard analitik. Bagaimana data diproses, visualisasi apa yang Anda buat menggunakan D3.js, dan bagaimana integrasi AI/ML (TensorFlow) berfungsi."
+      "Proyek ini adalah pembuatan desain grafis untuk kebutuhan T-shirt dan brand identity menggunakan Adobe Photoshop dan Canva. Prosesnya mencakup pembuatan konsep visual, ilustrasi, komposisi warna, serta penyusunan layout final yang siap di-printing.",
   }
 ];
 
