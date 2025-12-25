@@ -13,7 +13,7 @@ const skillCategories = [
     category: "Analysis",
     skills: [
       { name: "Crypto Market", level: 75 },
-      { name: "Bonds", level: 70 },
+      { name: "Stock Market", level: 70 },
     ]
   },
   {

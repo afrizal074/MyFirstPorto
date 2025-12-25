@@ -29,7 +29,7 @@ export const Hero = () => {
               Firmansyah
             </h1>
             <p className="text-xl md:text-2xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-              Nice too meet you! I'm a Newbie for web developer , just started learning.
+              Nice too meet you! I'm a Newbie , just started learning.
             </p>
           </motion.div>
 

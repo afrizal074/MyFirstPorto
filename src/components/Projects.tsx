@@ -35,7 +35,7 @@ const projects = [
   },
   {
     title: "Design Shirt", 
-    description: "Data visualization dashboard with AI-powered insights...", 
+    description: "Design Shirt is a creative t-shirt design project focused on modern, clean, and expressive visuals. The designs are developed for personal and branding needs with an aesthetic-driven approach.", 
     tech: ["Adobe Photoshop", "Canva"],
     image: "/images/Canva.jpg", // <-- Ganti dengan path gambar Anda
     demoUrl: "#",
