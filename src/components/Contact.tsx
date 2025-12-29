@@ -1,21 +1,17 @@
 // src/components/Contact.tsx
+
 import { motion, useInView } from "framer-motion";
 import { useRef, useState } from "react";
 import { Button } from "./ui/button";
 import { Input } from "./ui/input";
 import { Textarea } from "./ui/textarea";
-
-// === PERUBAHAN 1: Impor ikon Instagram dan MessageCircle (untuk WhatsApp) ===
-import { Mail, Linkedin, Instagram, MessageCircle } from "lucide-react"; 
-// === AKHIR PERUBAHAN 1 ===
-
+import { Mail, Linkedin, Instagram, MessageCircle, Loader2 } from "lucide-react"; 
 import { toast } from "sonner";
 
-// === PERUBAHAN 2: Tambahkan Instagram dan WhatsApp ke array ===
 const socialLinks = [
   { 
     icon: Linkedin, 
-    href: "https://www.linkedin.com/in/afrizalfauzi-firmansyah425/", // <-- GANTI DENGAN LINK LINKEDIN ANDA
+    href: "https://www.linkedin.com/in/afrizalfauzi-firmansyah425/", 
     label: "LinkedIn" 
   },
   { 
@@ -25,32 +21,68 @@ const socialLinks = [
   },
   { 
     icon: Instagram, 
-    href: "https://www.instagram.com/afrizalfauziii./", // <-- GANTI DENGAN LINK INSTAGRAM ANDA
+    href: "https://www.instagram.com/afrizalfauziii./", 
     label: "Instagram" 
   },
   { 
-    icon: MessageCircle, // Menggunakan ikon chat untuk WhatsApp
-    href: "https://wa.me/6285716910663", // <-- GANTI DENGAN NOMOR WHATSAPP ANDA (diawali 62)
+    icon: MessageCircle, 
+    href: "https://wa.me/6285716910663", 
     label: "WhatsApp" 
   }
 ];
-// === AKHIR PERUBAHAN 2 ===
 
 export const Contact = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const [isSubmitting, setIsSubmitting] = useState(false); // Status loading
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     message: ""
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  // === FUNGSI PENGIRIM PESAN (YANG DIPERBAIKI) ===
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Form submitted:", formData);
-    toast.success("Message sent! I'll get back to you soon.");
-    setFormData({ name: "", email: "", message: "" });
+    
+    // ⚠️ GANTI URL INI DENGAN PUNYA KAMU DARI FORMSPREE ⚠️
+    const formspreeEndpoint = "https://formspree.io/f/mvoqbzqa";
+
+    // Validasi sederhana: Cek jika link belum diganti
+    if (formspreeEndpoint.includes("https://formspree.io/f/mvoqbzqa")) {
+      toast.error("Link Formspree belum diganti di kodingan!");
+      return;
+    }
+
+    setIsSubmitting(true); // Mulai loading
+    console.log("Mengirim data ke:", formspreeEndpoint);
+
+    try {
+      const response = await fetch(formspreeEndpoint, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Accept": "application/json"
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        toast.success("Pesan berhasil terkirim! Saya akan segera membalasnya.");
+        setFormData({ name: "", email: "", message: "" }); // Reset form
+      } else {
+        const data = await response.json();
+        console.error("Error dari Formspree:", data);
+        toast.error("Gagal mengirim pesan. Cek koneksi atau coba lagi.");
+      }
+    } catch (error) {
+      console.error("Error Jaringan:", error);
+      toast.error("Terjadi kesalahan sistem.");
+    } finally {
+      setIsSubmitting(false); // Berhenti loading
+    }
   };
+  // === AKHIR FUNGSI ===
 
   return (
     <section id="contact" className="py-32 relative overflow-hidden">
@@ -89,6 +121,7 @@ export const Contact = () => {
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                     placeholder="Your name"
                     required
+                    disabled={isSubmitting}
                     className="bg-background/50 border-primary/20 focus:border-primary"
                   />
                 </div>
@@ -103,6 +136,7 @@ export const Contact = () => {
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                     placeholder="your.email@example.com"
                     required
+                    disabled={isSubmitting}
                     className="bg-background/50 border-primary/20 focus:border-primary"
                   />
                 </div>
@@ -117,14 +151,22 @@ export const Contact = () => {
                     placeholder="Tell me about your project..."
                     required
                     rows={6}
+                    disabled={isSubmitting}
                     className="bg-background/50 border-primary/20 focus:border-primary resize-none"
                   />
                 </div>
                 <Button 
                   type="submit" 
+                  disabled={isSubmitting}
                   className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-semibold py-6 text-lg"
                 >
-                  Send Message
+                  {isSubmitting ? (
+                    <>
+                      <Loader2 className="mr-2 h-4 w-4 animate-spin" /> Mengirim...
+                    </>
+                  ) : (
+                    "Send Message"
+                  )}
                 </Button>
               </form>
             </motion.div>
@@ -147,13 +189,11 @@ export const Contact = () => {
               <div className="space-y-4">
                 <h4 className="text-xl font-semibold mb-4">Find me on</h4>
                 <div className="flex gap-4">
-                  {/* Sekarang akan me-render 4 ikon */}
                   {socialLinks.map((social) => (
                     <a
                       key={social.label}
                       href={social.href}
-                      // Buka di tab baru hanya jika BUKAN email
-                      target={social.label !== 'Email' ? "_blank" : undefined} 
+                      target={social.label !== 'Email' ? "_blank" : undefined}
                       rel="noopener noreferrer"
                       className="w-12 h-12 rounded-xl bg-primary/10 hover:bg-primary/20 border border-primary/20 flex items-center justify-center transition-all duration-300 hover:scale-110 group"
                       aria-label={social.label}
