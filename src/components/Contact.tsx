@@ -45,14 +45,10 @@ export const Contact = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
+    
     // ⚠️ GANTI URL INI DENGAN PUNYA KAMU DARI FORMSPREE ⚠️
-    const formspreeEndpoint = "https://formspree.io/f/mvoqbzqa";
+    const formspreeEndpoint = "https://formspree.io/f/mqekyovv";
 
-    // Validasi sederhana: Cek jika link belum diganti
-    if (formspreeEndpoint.includes("https://formspree.io/f/mvoqbzqa")) {
-      toast.error("Link Formspree belum diganti di kodingan!");
-      return;
-    }
 
     setIsSubmitting(true); // Mulai loading
     console.log("Mengirim data ke:", formspreeEndpoint);
