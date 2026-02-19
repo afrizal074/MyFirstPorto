@@ -1,6 +1,7 @@
 import { useRef } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
-import { OrbitControls, Sphere, MeshDistortMaterial } from "@react-three/drei";
+// PERUBAHAN: Menambahkan Sparkles dari @react-three/drei
+import { OrbitControls, Sphere, MeshDistortMaterial, Sparkles } from "@react-three/drei";
 import * as THREE from "three";
 
 function AnimatedSphere() {
@@ -29,12 +30,26 @@ function AnimatedSphere() {
 
 export const Scene3D = () => {
   return (
-    <div className="w-full h-full">
+    // PERUBAHAN: Mengubah class menjadi fixed, inset-0 (full screen), dan pointer-events-none
+    <div className="fixed inset-0 w-full h-full -z-10 pointer-events-none">
       <Canvas camera={{ position: [0, 0, 5], fov: 50 }}>
         <ambientLight intensity={0.5} />
         <directionalLight position={[10, 10, 5]} intensity={1} />
         <pointLight position={[-10, -10, -5]} intensity={0.5} color="#a855f7" />
+        
+        {/* Bola 3D Utama */}
         <AnimatedSphere />
+
+        {/* TAMBAHAN: Efek partikel cahaya yang tersebar merata di layar */}
+        <Sparkles 
+          count={150}        // Jumlah titik cahaya
+          scale={15}         // Area sebaran partikel (semakin besar semakin menyebar)
+          size={2.5}         // Ukuran partikel
+          speed={0.4}        // Kecepatan melayang
+          opacity={0.6}      // Tingkat transparansi partikel
+          color="#38bdf8"    // Warna partikel (biru muda)
+        />
+        
         <OrbitControls 
           enableZoom={false} 
           enablePan={false}

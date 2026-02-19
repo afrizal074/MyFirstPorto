@@ -62,7 +62,7 @@ export const Hero = () => {
             transition={{ duration: 1, delay: 1.2 }}
             className="pt-40"
           >
-            <ArrowDown className="w-6 h-6 mx-auto animate-bounce text-primary" />
+
           </motion.div>
         </div>
       </div>
