@@ -17,18 +17,18 @@
            className="max-w-6xl mx-auto"
          >
  
--          {/* === BLOK JUDUL (DIPINDAHKAN KE ATAS & DIBUAT RATA TENGAH) === */}
+        {/* === BLOK JUDUL (DIPINDAHKAN KE ATAS & DIBUAT RATA TENGAH) === */}
            <div className="text-center mb-10 md:mb-16">
              <h2 className="text-4xl md:text-6xl font-bold">
                About <span className="text-gradient">Me</span>
              </h2>
            </div>
  
--          {/* === WRAPPER FLEXBOX === */}
+         {/* === WRAPPER FLEXBOX === */}
            <div className="flex flex-col-reverse md:flex-row items-center gap-8 md:gap-12 mb-16">
--            
--            {/* === BLOK DESKRIPSI (KIRI) === */}
-+
+           
+            {/* === BLOK DESKRIPSI (KIRI) === */}
+
              <motion.div
                className="w-full md:w-1/2"
                initial={{ opacity: 0, x: -50 }}
@@ -40,7 +40,7 @@
                </p>
              </motion.div>
  
--            {/* === BLOK FOTO (KANAN) === */}
+           {/* === BLOK FOTO (KANAN) === */}
              <motion.div 
                className="w-full md:w-1/2 flex justify-center"
                initial={{ opacity: 0, x: 50 }}
