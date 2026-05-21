@@ -44,7 +44,7 @@ export const Skills = () => {
               Skills & <span className="text-gradient">Expertise</span>
             </h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              Technologies and tools I use to bring ideas to life
+              Technologies and My basic skills.
             </p>
           </div>
 
