@@ -9,8 +9,8 @@ export const Footer = () => {
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="text-center md:text-left">
             <p className="text-muted-foreground">
-              © {currentYear} Portfolio. Built with{" "}
-              <Heart className="inline w-4 h-4 text-primary fill-primary" /> and modern web technologies
+              © {currentYear} Portfolio.{" "}
+              <Heart className="inline w-4 h-4 text-primary fill-primary" />
             </p>
           </div>
 
