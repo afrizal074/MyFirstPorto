@@ -36,7 +36,7 @@
                transition={{ duration: 0.6, delay: 0.4 }}
              >
                <p className="text-base sm:text-lg md:text-xl text-muted-foreground leading-relaxed text-justify">
-                 Welcome! I'm Afrizal Fauzi Firmansyah, an Industrial Engineer obsessed with making things run better. To me, industrial engineering is the art of looking at a system whether it's an assembly line, a bank queue, or even how you organize your computer files and finding a way to make it more efficient. I spend my days analyzing data, drawing flowcharts, and working with teams to turn good enough processes into exceptionally efficient ones. I thrive on the challenge of combing through complexity to find simple solutions that make a big impact. This website is where I share insights on productivity, operations management, and continuous improvement. Let's connect and discuss a smarter way of working!
+                 Hi Everyone, My Name is Afrizal Fauzi Firmansyah. Now I am a student at Pamulang University majoring in Industrial Engineering. I like things related to the world of technology, therefore I created this website not because I am in the IT field but in my opinion creating this website is a basic knowledge that I must learn in the current era which makes it easier for us to create anything. I hope I can find good things and good relationships to support my better future.
                </p>
              </motion.div>
  

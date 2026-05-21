@@ -6,7 +6,7 @@ const skillCategories = [
     category: "Communication Languagaes",
     skills: [
       { name: "Indonesian", level: 95 },
-      { name: "Engglish", level: 50 },
+      { name: "Engglish", level: 90 },
     ]
   },
   {
