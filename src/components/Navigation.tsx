@@ -82,6 +82,8 @@ export const Navigation = () => {
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               className="md:hidden text-foreground p-2"
               aria-label="Toggle menu"
+              aria-expanded={isMobileMenuOpen}
+              aria-controls="mobile-navigation"
             >
               {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>
@@ -96,6 +98,9 @@ export const Navigation = () => {
           animate={{ opacity: 1, x: 0 }}
           exit={{ opacity: 0, x: "100%" }}
           transition={{ duration: 0.3 }}
+          id="mobile-navigation"
+          role="dialog"
+          aria-label="Mobile navigation"
           className="fixed inset-0 z-40 md:hidden bg-background/95 backdrop-blur-xl"
         >
           <div className="flex flex-col items-center justify-center h-full space-y-8">

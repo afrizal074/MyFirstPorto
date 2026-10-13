@@ -10,26 +10,26 @@ export const Hero = () => {
       <div className="absolute inset-0 bg-gradient-to-b from-background via-background/95 to-background z-0" />
       
       {/* 3D Scene Background */}
-      <div className="absolute inset-0 opacity-40 z-0">
+      <div className="absolute inset-0 hidden sm:block opacity-40 z-0">
         <Scene3D />
       </div>
 
       {/* Content */}
-      <div className="container relative z-10 px-6">
-        <div className="max-w-5xl mx-auto text-center space-y-8 pt-40">
+      <div className="container relative z-10 px-4 sm:px-6">
+        <div className="max-w-5xl mx-auto text-center space-y-8 pt-28 sm:pt-40">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
             className="space-y-4"
           >
-            <h1 className="text-6xl md:text-8xl font-bold tracking-tight">
+            <h1 className="text-4xl leading-tight sm:text-6xl md:text-8xl font-bold tracking-tight">
               <span className="text-gradient glow-text">Afrizal Fauzi</span>
               <br />
               Firmansyah
             </h1>
-            <p className="text-xl md:text-2xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-              Nice too meet you , Let's learn and develop together.
+            <p className="text-base sm:text-xl md:text-2xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+              Nice to meet you. Let&apos;s learn and develop together.
             </p>
           </motion.div>
 
@@ -37,11 +37,11 @@ export const Hero = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
-            className="flex flex-col sm:flex-row gap-4 justify-center items-center"
+            className="flex w-full flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center"
           >
             <Button 
               size="lg" 
-              className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold px-8 py-6 text-lg rounded-xl shadow-lg hover:shadow-xl transition-all duration-300"
+              className="w-full sm:w-auto bg-primary hover:bg-primary/90 text-primary-foreground font-semibold px-6 sm:px-8 py-5 sm:py-6 text-base sm:text-lg rounded-xl shadow-lg hover:shadow-xl transition-all duration-300"
               onClick={() => document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })}
             >
               View Projects
@@ -49,7 +49,7 @@ export const Hero = () => {
             <Button 
               size="lg" 
               variant="outline"
-              className="border-primary/50 text-foreground hover:bg-primary/10 font-semibold px-8 py-6 text-lg rounded-xl backdrop-blur-sm"
+              className="w-full sm:w-auto border-primary/50 text-foreground hover:bg-primary/10 font-semibold px-6 sm:px-8 py-5 sm:py-6 text-base sm:text-lg rounded-xl backdrop-blur-sm"
               onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
             >
               Get In Touch

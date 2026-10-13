@@ -7,7 +7,7 @@
    const isInView = useInView(ref, { once: true, margin: "-50px" });
  
    return (
-     <section id="about" className="py-16 md:py-28 relative overflow-hidden">
+     <section id="about" className="py-14 sm:py-16 md:py-28 relative overflow-hidden">
        <div className="container px-4 sm:px-6">
          <motion.div
            ref={ref}
@@ -19,7 +19,7 @@
  
         {/* === BLOK JUDUL (DIPINDAHKAN KE ATAS & DIBUAT RATA TENGAH) === */}
            <div className="text-center mb-10 md:mb-16">
-             <h2 className="text-4xl md:text-6xl font-bold">
+             <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold">
                About <span className="text-gradient">Me</span>
              </h2>
            </div>

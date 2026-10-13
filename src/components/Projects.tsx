@@ -49,8 +49,8 @@ export const Projects = () => {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="projects" className="py-32 relative">
-      <div className="container px-6">
+    <section id="projects" className="py-16 sm:py-24 md:py-32 relative">
+      <div className="container px-4 sm:px-6">
         <motion.div
           ref={ref}
           initial={{ opacity: 0, y: 50 }}
@@ -59,10 +59,10 @@ export const Projects = () => {
         >
           <div className="text-center mb-16">
             {/* ... (Judul section tetap sama) ... */}
-            <h2 className="text-5xl md:text-6xl font-bold mb-6">
+            <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6">
               Featured <span className="text-gradient">Projects</span>
             </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+            <p className="text-base sm:text-xl text-muted-foreground max-w-3xl mx-auto">
               A selection of recent work showcasing innovative solutions and creative implementations
             </p>
           </div>
@@ -79,6 +79,8 @@ export const Projects = () => {
                       <img
                         src={project.image} 
                         alt={project.title}
+                        loading="lazy"
+                        decoding="async"
                         className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-card via-card/50 to-transparent opacity-60" />
