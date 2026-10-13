@@ -15,7 +15,7 @@ function AnimatedSphere() {
   });
 
   return (
-    <Sphere ref={meshRef} args={[1, 32, 32]} scale={2.4}>
+    <Sphere ref={meshRef} args={[1, 100, 100]} scale={2.4}>
       <MeshDistortMaterial
         color="#38bdf8"
         attach="material"
@@ -42,7 +42,7 @@ export const Scene3D = () => {
 
         {/* TAMBAHAN: Efek partikel cahaya yang tersebar merata di layar */}
         <Sparkles 
-          count={80}         // Jumlah titik cahaya
+          count={150}        // Jumlah titik cahaya
           scale={15}         // Area sebaran partikel (semakin besar semakin menyebar)
           size={2.5}         // Ukuran partikel
           speed={0.4}        // Kecepatan melayang

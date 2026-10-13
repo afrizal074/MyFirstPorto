@@ -31,8 +31,8 @@ export const Skills = () => {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="skills" className="py-16 sm:py-24 md:py-32 relative overflow-hidden">
-      <div className="container px-4 sm:px-6">
+    <section id="skills" className="py-32 relative overflow-hidden">
+      <div className="container px-6">
         <motion.div
           ref={ref}
           initial={{ opacity: 0, y: 50 }}
@@ -40,10 +40,10 @@ export const Skills = () => {
           transition={{ duration: 0.8 }}
         >
           <div className="text-center mb-16">
-            <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6">
+            <h2 className="text-5xl md:text-6xl font-bold mb-6">
               Skills & <span className="text-gradient">Expertise</span>
             </h2>
-            <p className="text-base sm:text-xl text-muted-foreground max-w-3xl mx-auto">
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
               Technologies and My basic skills.
             </p>
           </div>
@@ -55,7 +55,7 @@ export const Skills = () => {
                 initial={{ opacity: 0, x: -30 }}
                 animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -30 }}
                 transition={{ duration: 0.6, delay: catIndex * 0.2 }}
-                className="bg-card border-glow rounded-2xl p-5 sm:p-8 card-glow"
+                className="bg-card border-glow rounded-2xl p-8 card-glow"
               >
                 <h3 className="text-2xl font-bold mb-6 text-primary">{category.category}</h3>
                 <div className="space-y-6">
